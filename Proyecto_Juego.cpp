@@ -1,6 +1,7 @@
-#include <iostream>
-#include <string>
-#include<iomanip>
+#include <iostream>// para la manipulacion del flujo de datos
+#include <string> // para usar string
+#include<iomanip> // para poder usar setW()
+#include<stdlib.h> // para usar la funcion system("cls")
 
 using namespace std;
 
@@ -13,19 +14,19 @@ void nuevoJugador(string nombre[]); // agrega un nuevo jugador
 int main()
 {
 	
-	menu();
+	menu();// se abre el menu
 
 
-	system("pause");
+	system("pause"); // para que no se cierre la consola
     return 0;
 }
 
-void menu(){
+void menu(){ // todo lo relacionado con el menu prinncipal
 
-	int opcion;
+	int opcion; // la opcion que el usuario ingresara
 	do{
 
-
+	system("cls"); // limpia la pantalla
 	cout<<"*********************MENU PRINCIPAL*********************"<<endl;
 	cout<<"*"<<setw(55)<<"*"<<endl;
 	cout<<"*    1. Vs CPU"<<setw(42)<<"*"<<endl;
@@ -35,28 +36,32 @@ void menu(){
 	cout<<"*"<<setw(55)<<"*"<<endl;
 	cout<<"********************************************************"<<endl;
 	cout<<"Seleccion: ";
-	cin>>opcion;
+	cin>>opcion; // para que el usuario ingrese una opcion
 	if ( opcion<1 || opcion > 4 )
 	{
-		cout<<"opcion no valida \n";
+		cout<<"opcion no valida \n"; // en caso de que la opcion no este en el rango disponible
 	}
 	}while(opcion<1 || opcion > 4);
 
-	switch(opcion){
+	switch(opcion){ // para seleccionar la funcion que el usuario desea
 		case 1: 
 			cout<<"Abriendo modo versus maquina \n";
-			vsCPU();
+			system("cls");//limpia la pantalla 
+			vsCPU();// llama a la funcion que se encarga del modo vs maquina
 			break;
 			case 2: 
 			cout<<"Abriendo modo 2 jugadores\n";
-			Vs2();
+			system("cls");//limpia la pantalla 
+			Vs2(); // funcion para jugar 1 vs 1
 			break;
 			case 3: 
 			cout<<"Historial de juego \n";
-			historial();
+			system("cls");//limpia la pantalla 
+			historial(); // funcion que muesta el historial del juego
 			break;
 			case 4: 
-			cout<<"Gracias por jugar\n";
+			system("cls");//limpia la pantalla 
+			cout<<"*** Gracias por jugar :) ***\n";
 			break;
 	}
 }
